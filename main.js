@@ -71,7 +71,11 @@ document.querySelector(".buttons").addEventListener("click", (e) => {
       break;
     // CLEAR click
     case "clr":
-      resetScreen();
+      if (screenTxt.innerText === "0") {
+        document.querySelector(".screenhistory").innerHTML = "";
+      } else {
+        resetScreen();
+      }
       break;
     // EQUAL click
     case "eql":
