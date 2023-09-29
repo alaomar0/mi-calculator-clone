@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calc">
+      <div class="screen">
+        <div class="screenhistory"></div>
+        <div class="screentxt active"><span class="numb">0</span></div>
+        <div class="screeneql"></div>
+      </div>
+      <div class="buttons">
+        
+          <button type="button" class="clr oprs">AC</button>
+          <button type="button" class="dlt oprs">
+            <img class="dlt" src="delete.png" alt="delete-key"/>
+          </button>
+          <button type="button" class="prc oprs">%</button>
+          <button type="button" class="opr dv">&divide;</button>
+          
+          
+          <button type="button" class="no">7</button>
+          <button type="button" class="no">8</button>
+          <button type="button" class="no">9</button>
+          <button type="button" class="opr mlt">&times;</button>
+          
+          
+          <button type="button" class="no">4</button>
+          <button type="button" class="no">5</button>
+          <button type="button" class="no">6</button>
+          <button type="button" class="opr minus">&minus;</button>
+          
+          <button type="button" class="no">1</button>
+          <button type="button" class="no">2</button>
+          <button type="button" class="no">3</button>
+          <button type="button" class="opr plus">&plus;</button>
+          
+          <button type="button" class="oprs swt">
+            N
+          </button>
+          <button type="button" class="no">0</button>
+          <button type="button" class="no">.</button>
+          <button type="button" class="eql" >&equals;</button>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <script>
+      // Function to handle class addition and removal
+      function toggleClass(eventType) {
+        // Toggle 'active' class based on event type
+        this.classList.toggle("active", eventType === "add");
+      }
+      // Click Animation
+      document.querySelectorAll(".buttons > *").forEach((e) => {
+        // Define events that add or remove 'active' class
+        const addEvents = ["touchstart", "mousedown"];
+        const removeEvents = ["touchend", "mouseup", "mouseleave"];
+
+        // Add 'active' class for specified events
+        addEvents.forEach(event => {
+          e.addEventListener(event, () => toggleClass.call(e, "add"));
+        });
+
+        // Remove 'active' class for specified events
+        removeEvents.forEach(event => {
+          e.addEventListener(event, () => toggleClass.call(e, "remove"));
+        });
+      });
+    </script>
+  </body>
+</html>
